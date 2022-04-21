@@ -1,0 +1,7 @@
+create table TRANSACTIONS (
+    uuid VARCHAR(255) PRIMARY KEY,
+    description VARCHAR(255),
+    transaction_value VARCHAR(255),
+    transaction_direction INTEGER,
+    created_at TIMESTAMP
+);

@@ -1,0 +1,21 @@
+spring:
+  profiles:
+    active: development
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: 'jdbc:postgresql://localhost:5432/postgres'
+    username: postgres
+    password: postgres
+  flyway:
+    url: 'jdbc:postgresql://localhost:5432/postgres'
+    password: postgres
+    user: postgres
+    locations: filesystem:resources/db/migration
+    #schemas: test
+    baseline-on-migrate: true #NEVER CHANGE BASELINE TO TRUE
+    validate-on-migrate: true #true to populate local DB
+    table: schema_version
+    enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: validate
