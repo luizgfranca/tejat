@@ -1,0 +1,2 @@
+docker-compose --project-directory postgres up -d
+./gradlew bootRun 

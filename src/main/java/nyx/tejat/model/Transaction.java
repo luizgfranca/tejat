@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
 import java.time.temporal.Temporal;
+import java.util.UUID;
 
 import lombok.Data;
 import lombok.Generated;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -19,8 +19,9 @@ import javax.persistence.Table;
 public class Transaction {
 
     @Id
-    @Generated
-    private String uuid;
+    @GenericGenerator(name = "UUIDGenerator", strategy = "uuid2")
+    @GeneratedValue(generator = "UUIDGenerator")
+    private UUID id;
 
     private String description;
 
@@ -30,7 +31,7 @@ public class Transaction {
     @Column(name = "transaction_direction")
     private TransactionDirection transactionDirection;
 
+    @CreationTimestamp
     @Column(name = "created_at")
     private Timestamp createdAt;
-
 }

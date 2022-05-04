@@ -4,12 +4,15 @@ import nyx.tejat.dto.TransactionDto;
 import nyx.tejat.model.Transaction;
 import nyx.tejat.service.TransactionService;
 import nyx.tejat.view.TransactionView;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.constraints.NotEmpty;
+import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
@@ -24,11 +27,11 @@ public class TransactionController {
         return this.transactionView.listAll();
     }
 
-    @GetMapping(name = ":id")
+    Logger logger = LoggerFactory.getLogger(TransactionController.class);
+
+    @GetMapping(value = "/{id}")
     public Transaction getTransactionByID(
-            @NotEmpty
-            @Param("id")
-                    String id
+            @NotEmpty @PathVariable("id") String id
     ) {
         return transactionView.get(id);
     }
@@ -38,12 +41,11 @@ public class TransactionController {
         return transactionView.create(transactionDto);
     }
 
-    @DeleteMapping(name = ":id")
+    @DeleteMapping(value = "/{id}")
     public void removeTransaction(
-            @NotEmpty
-            @Param("id")
-                    String id)
-    {
+            @NotEmpty @PathVariable("id") String id
+    ) {
+        logger.info(id);
         transactionView.remove(id);
     }
 }

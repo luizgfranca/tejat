@@ -2,12 +2,14 @@ package nyx.tejat.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 import nyx.tejat.model.Transaction;
 import nyx.tejat.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import javax.validation.constraints.NotNull;
 
 @Service
@@ -20,7 +22,7 @@ public class TransactionService {
         return transactionRepository.findAll();
     }
 
-    public Optional<Transaction> get(String id) {
+    public Optional<Transaction> get(UUID id) {
         return transactionRepository.findById(id);
     }
 
@@ -28,8 +30,9 @@ public class TransactionService {
         return this.transactionRepository.save(transaction);
     }
 
-    public void remove(@NotNull String uuid) {
-        this.transactionRepository.deleteById(uuid);
+    @Transactional
+    public void remove(@NotNull UUID id) {
+        this.transactionRepository.deleteById(id);
     }
 
 }
