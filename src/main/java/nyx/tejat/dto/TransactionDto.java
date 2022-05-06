@@ -1,13 +1,9 @@
 package nyx.tejat.dto;
 
-import com.fasterxml.jackson.databind.util.EnumValues;
 import lombok.Data;
 import nyx.tejat.model.Account;
 import nyx.tejat.model.Transaction;
-import nyx.tejat.model.TransactionDirection;
-import org.springframework.validation.annotation.Validated;
 
-import javax.validation.Constraint;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import javax.validation.constraints.PositiveOrZero;
@@ -38,8 +34,8 @@ public class TransactionDto {
         var transaction = new Transaction();
         transaction.setDescription(this.description);
         transaction.setValue(new BigDecimal(value));
-        transaction.setOrigin(Account.createWithId(origin));
-        transaction.setDestination(Account.createWithId(destination));
+        transaction.setOrigin(Account.builder().id(origin).build());
+        transaction.setDestination(A ccount.builder().id(destination).build());
         return transaction;
     }
 

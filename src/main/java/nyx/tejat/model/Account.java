@@ -1,5 +1,6 @@
 package nyx.tejat.model;
 
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 import java.util.UUID;
 
 @Data
+@Builder
 @Entity
 @Table(name = "ACCOUNTS")
 public class Account {
@@ -27,10 +29,4 @@ public class Account {
     @UpdateTimestamp
     @Column(name = "updated_at")
     Timestamp updatedAt;
-
-    public static Account createWithId(Long id) {
-        var account = new Account();
-        account.setId(id);
-        return account;
-    }
 }
