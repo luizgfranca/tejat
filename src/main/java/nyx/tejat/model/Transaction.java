@@ -32,6 +32,6 @@ public class Transaction {
     private TransactionDirection transactionDirection;
 
     @CreationTimestamp
-    @Column(name = "created_at")
+    @Column(name = "created_at")    
     private Timestamp createdAt;
 }

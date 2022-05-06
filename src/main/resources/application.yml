@@ -10,7 +10,7 @@ spring:
     url: 'jdbc:postgresql://localhost:5432/postgres'
     password: postgres
     user: postgres
-    locations: filesystem:resources/db/migration
+    #locations: filesystem:resources/db/migration
     #schemas: test
     baseline-on-migrate: true #NEVER CHANGE BASELINE TO TRUE
     validate-on-migrate: true #true to populate local DB

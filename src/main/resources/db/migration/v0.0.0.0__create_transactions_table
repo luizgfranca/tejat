@@ -1,7 +1,0 @@
-create table TRANSACTIONS (
-    id UUID PRIMARY KEY,
-    description VARCHAR(255),
-    transaction_value NUMERIC(19, 2),
-    transaction_direction INTEGER,
-    created_at TIMESTAMP
-);
