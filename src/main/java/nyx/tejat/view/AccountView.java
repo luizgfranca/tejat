@@ -2,7 +2,9 @@ package nyx.tejat.view;
 
 import nyx.tejat.dto.AccountDto;
 import nyx.tejat.model.Account;
+import nyx.tejat.model.Transaction;
 import nyx.tejat.service.AccountService;
+import nyx.tejat.service.TransactionService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

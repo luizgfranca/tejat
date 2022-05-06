@@ -19,9 +19,10 @@ public class AccountDto {
     String updatedAt;
 
     public Account toAccount() {
-        var account = new Account();
-        account.setId(this.id);
-        account.setName(this.name);
+        var account = Account.builder()
+                .id(id)
+                .name(name)
+                .build();
         return account;
     }
 

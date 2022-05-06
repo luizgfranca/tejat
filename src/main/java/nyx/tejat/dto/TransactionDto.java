@@ -35,7 +35,7 @@ public class TransactionDto {
         transaction.setDescription(this.description);
         transaction.setValue(new BigDecimal(value));
         transaction.setOrigin(Account.builder().id(origin).build());
-        transaction.setDestination(A ccount.builder().id(destination).build());
+        transaction.setDestination(Account.builder().id(destination).build());
         return transaction;
     }
 

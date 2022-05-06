@@ -53,4 +53,11 @@ public class TransactionView {
         this.transactionService.remove(UUID.fromString(id));
     }
 
+    public List<Transaction> getTransactionsOriginatedFromAccount(Long accountId) {
+        return this.transactionService.listByOriginAccount(accountId);
+    }
+
+    public List<Transaction> getTransactionsDestinatedToAccount(Long accountId) {
+        return this.transactionService.listByDestinationAccount(accountId);
+    }
 }
