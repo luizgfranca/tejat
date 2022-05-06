@@ -2,6 +2,7 @@ package nyx.tejat.dto;
 
 import com.fasterxml.jackson.databind.util.EnumValues;
 import lombok.Data;
+import nyx.tejat.model.Account;
 import nyx.tejat.model.Transaction;
 import nyx.tejat.model.TransactionDirection;
 import org.springframework.validation.annotation.Validated;
@@ -26,7 +27,10 @@ public class TransactionDto {
     String value;
 
     @NotEmpty
-    String direction;
+    Long origin;
+
+    @NotEmpty
+    Long destination;
 
     String createdAt;
 
@@ -34,7 +38,8 @@ public class TransactionDto {
         var transaction = new Transaction();
         transaction.setDescription(this.description);
         transaction.setValue(new BigDecimal(value));
-        transaction.setTransactionDirection(TransactionDirection.valueOf(direction));
+        transaction.setOrigin(Account.createWithId(origin));
+        transaction.setDestination(Account.createWithId(destination));
         return transaction;
     }
 

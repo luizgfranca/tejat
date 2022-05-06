@@ -27,4 +27,10 @@ public class Account {
     @UpdateTimestamp
     @Column(name = "updated_at")
     Timestamp updatedAt;
+
+    public static Account createWithId(Long id) {
+        var account = new Account();
+        account.setId(id);
+        return account;
+    }
 }

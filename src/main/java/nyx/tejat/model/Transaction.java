@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 import java.time.temporal.Temporal;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 import lombok.Generated;
 import org.hibernate.annotations.CreationTimestamp;
@@ -28,10 +29,17 @@ public class Transaction {
     @Column(name = "transaction_value")
     private BigDecimal value;
 
-    @Column(name = "transaction_direction")
-    private TransactionDirection transactionDirection;
-
     @CreationTimestamp
-    @Column(name = "created_at")    
+    @Column(name = "created_at")
     private Timestamp createdAt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "origin")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Account origin;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "destination")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Account destination;
 }

@@ -3,7 +3,6 @@ package nyx.tejat.view;
 import nyx.tejat.dto.TransactionDto;
 import nyx.tejat.model.Transaction;
 import nyx.tejat.service.TransactionService;
-import nyx.tejat.validator.TransactionDirectionValidator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,9 +17,6 @@ import java.util.UUID;
 public class TransactionView {
 
     Logger logger = LoggerFactory.getLogger(TransactionView.class);
-
-    @Autowired
-    private TransactionDirectionValidator transactionDirectionValidator;
 
     @Autowired
     private TransactionService transactionService;
@@ -41,12 +37,6 @@ public class TransactionView {
     }
 
     public Transaction create(TransactionDto dto) {
-        if(!transactionDirectionValidator.validate(dto.getDirection()))
-            throw new ResponseStatusException(
-                    HttpStatus.UNPROCESSABLE_ENTITY,
-                    "invalid_value (direction)"
-            );
-
         try {
             return this.transactionService.create(dto.toTransaction());
         } catch (Exception e) {
