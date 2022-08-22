@@ -1,0 +1,15 @@
+.selector {
+    background-color: #eeeeee;
+}
+
+.selectorOption {
+    padding: 0.5rem 0.2rem;
+
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.selectorOption:hover {
+    background-color: #101050;
+    color: #ffffff;
+}

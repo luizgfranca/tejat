@@ -1,0 +1,40 @@
+.create-transaction-page {
+    width: 70%;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+label, input {
+    display: block;
+    font-size: 1.3rem;;
+}
+
+label {
+    font-weight: bold;
+}
+
+.form-footer {
+    padding: 5vh 0;
+}
+
+.form-footer button {
+    display: block;
+    margin: auto;
+    font-size: 1.2rem;
+    padding: 0 0.5rem;
+}
+
+.create-transaction-page .row {
+    display: flex;
+}
+
+.create-transaction-page .fieldBox {
+    padding-right: 1rem;
+}
+
+.create-transaction-page .row {
+    margin-bottom: 1rem;
+}

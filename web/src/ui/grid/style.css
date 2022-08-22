@@ -1,0 +1,22 @@
+.gridBodyLine, .gridHeader {
+    width: 100%;
+    display: flex;
+    padding: 0.2rem 1rem;
+}
+
+.gridHeader {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.gridHeaderColumn, .gridBodyColumn {
+    width: 100%;
+}
+
+.grid {
+
+}
+
+.gridBody {
+
+}

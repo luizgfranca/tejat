@@ -1,0 +1,23 @@
+.accountToolbarContainer {
+    background-color: #fefefe;
+}
+
+.accountToolbarItems {
+    display: flex;
+}
+
+.accountToolbarItem {
+    padding: 1rem 1rem;
+}
+
+a.accountToolbarLink {
+    text-decoration: none;
+    color: #222222;
+    text-transform: uppercase;
+}
+
+a.accountToolbarLink:hover {
+    background-color: #fafafa;
+    border: #cccccc 1px solid;
+    color: #111122;
+}
